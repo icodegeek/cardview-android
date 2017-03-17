@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<String> names;
+    private List<Movie> movies;
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        names = this.getAllNames();
+        movies = this.getAllMovies();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -38,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
         //Para utilizar el layout como tipo Grid
         mLayoutManager = new GridLayoutManager(this, 2);
 
-        mAdapter = new MyAdapter(names, R.layout.recycler_view_item, new MyAdapter.OnItemClickListener() {
+        mAdapter = new MyAdapter(movies, R.layout.recycler_view_item, new MyAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(String name, int position) {
                 //Toast.makeText(MainActivity.this, name + " - " + position, Toast.LENGTH_LONG).show();
-                deleteName(position);
+                //deleteName(position);
             }
         });
 
@@ -67,24 +67,23 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.add_name:
-                this.addName(0);
+                //this.addName(0);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private List<String> getAllNames(){
-        return new ArrayList<String>(){{
-            add("Juan Jesus");
-            add("Jose");
-            add("Roberto");
-            add("Susana");
-            add("Elena");
+    private List<Movie> getAllMovies(){
+        return new ArrayList<Movie>(){{
+            add(new Movie("Logan", R.drawable.Logan));
+            add(new Movie("Star Wars", R.drawable.starwar));
+            add(new Movie("Warcraft", R.drawable.warcraft));
+            add(new Movie("ZNation", R.drawable.znation));
         }};
     }
 
-    //Método para añadir nombre desde el option menú
+/*    //Método para añadir nombre desde el option menú
     private void addName(int position) {
         names.add(position, "New name " + (++count));
 
@@ -100,5 +99,5 @@ public class MainActivity extends AppCompatActivity {
 
         //Se le informa al adaptador de la eliminación de uno de los datos
         mAdapter.notifyItemRemoved(position);
-    }
+    }*/
 }
