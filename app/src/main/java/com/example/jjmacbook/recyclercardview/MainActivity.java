@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
 
         //Para utilizar el layout como tipo Grid
-        mLayoutManager = new GridLayoutManager(this, 2);
+        //mLayoutManager = new GridLayoutManager(this, 2);
 
         mAdapter = new MyAdapter(movies, R.layout.recycler_view_item, new MyAdapter.OnItemClickListener() {
             @Override
