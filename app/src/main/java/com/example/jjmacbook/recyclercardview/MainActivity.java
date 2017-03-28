@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAdapter = new MyAdapter(movies, R.layout.recycler_view_item, new MyAdapter.OnItemClickListener() {
             @Override
-            public void OnItemClick(String name, int position) {
+            public void OnItemClick(Movie movie, int position) {
                 //Toast.makeText(MainActivity.this, name + " - " + position, Toast.LENGTH_LONG).show();
                 //deleteName(position);
             }
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Movie> getAllMovies(){
         return new ArrayList<Movie>(){{
-            add(new Movie("Logan", R.drawable.Logan));
+            add(new Movie("logan", R.drawable.logan));
             add(new Movie("Star Wars", R.drawable.starwar));
             add(new Movie("Warcraft", R.drawable.warcraft));
             add(new Movie("ZNation", R.drawable.znation));
