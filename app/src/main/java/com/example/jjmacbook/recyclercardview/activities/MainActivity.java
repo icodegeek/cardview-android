@@ -1,13 +1,16 @@
-package com.example.jjmacbook.recyclercardview;
+package com.example.jjmacbook.recyclercardview.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.jjmacbook.recyclercardview.adapters.MyAdapter;
+import com.example.jjmacbook.recyclercardview.R;
+import com.example.jjmacbook.recyclercardview.models.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void OnItemClick(Movie movie, int position) {
                 //Toast.makeText(MainActivity.this, name + " - " + position, Toast.LENGTH_LONG).show();
-                //deleteName(position);
+                removeMovie(position);
             }
         });
 
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.add_name:
-                //this.addName(0);
+                this.addMovie(0);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -82,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
         }};
     }
 
-/*    //Método para añadir nombre desde el option menú
-    private void addName(int position) {
-        names.add(position, "New name " + (++count));
+    //Método para añadir nombre desde el option menú
+    private void addMovie(int position) {
+        movies.add(position, new Movie("New movie " + (++count), R.drawable.madmaxmovie));
 
         //Se le informa al adaptador de la introducción de datos nuevos
         mAdapter.notifyItemInserted(position);
@@ -93,10 +96,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Método para borrar nombre desde el option menú
-    private void deleteName(int position){
-        names.remove(position);
+    private void removeMovie(int position){
+        movies.remove(position);
 
         //Se le informa al adaptador de la eliminación de uno de los datos
         mAdapter.notifyItemRemoved(position);
-    }*/
+    }
 }

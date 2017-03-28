@@ -1,4 +1,4 @@
-package com.example.jjmacbook.recyclercardview;
+package com.example.jjmacbook.recyclercardview.models;
 
 /**
  * Created by jjmacbook on 17/3/17.
